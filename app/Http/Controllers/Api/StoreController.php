@@ -17,8 +17,8 @@ class StoreController extends Controller
         return response()->json(['shop' => $this->service->findById($id)]);
     }
 
-    public function index(): JsonResponse
+    public function index(string $value = null): JsonResponse
     {
-        return response()->json(['shops' => $this->service->getAll()]);
+        return response()->json(['shops' => $this->service->getAll(value: $value, columns: ['name'])]);
     }
 }

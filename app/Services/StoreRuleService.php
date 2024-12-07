@@ -6,8 +6,8 @@ use App\Repositories\StoreRuleRepository;
 
 class StoreRuleService extends BaseService
 {
-    public function __construct(StoreRuleRepository $repository, ?array $relations)
+    public function __construct(StoreRuleRepository $repository)
     {
-        parent::__construct($repository, $relations);
+        parent::__construct($repository, ['user']);
     }
 }

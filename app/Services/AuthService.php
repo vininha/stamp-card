@@ -21,7 +21,8 @@ class AuthService
         $user->tokens->where('name', $_SERVER['HTTP_USER_AGENT'])
             ->each(fn($token) => $token->delete());
         return response()->json([
-            'name' => $user->name,
+            'user' => $user,
+            'rule' => $user->rule,
             'token' => $user->createToken($_SERVER['HTTP_USER_AGENT'])->plainTextToken,
         ]);
     }
