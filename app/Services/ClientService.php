@@ -3,11 +3,19 @@
 namespace App\Services;
 
 use App\Repositories\ClientRepository;
+use Illuminate\Http\JsonResponse;
 
 class ClientService extends BaseService
 {
-    public function __construct(ClientRepository $repository, ?array $relations)
+    public function __construct(ClientRepository $repository)
     {
-        parent::__construct($repository, $relations);
+        parent::__construct($repository, ['stamps', 'coupons']);
+    }
+
+    public function updateOrCreate(array $data)
+    {
+        $client = $this->repository->updateOrCreate($data['mobile']);
+        $client->refresh();
+        return $client;
     }
 }

@@ -8,6 +8,6 @@ class ClientStampService extends BaseService
 {
     public function __construct(ClientStampRepository $repository, ?array $relations)
     {
-        parent::__construct($repository, $relations);
+        parent::__construct($repository, ['client']);
     }
 }

@@ -42,11 +42,11 @@ class User extends Authenticatable
 
     public function transactions(): HasMany
     {
-        return $this->hasMany(StoreTransaction::class);
+        return $this->hasMany(StoreTransaction::class, 'store_id', 'id');
     }
 
     public function rule(): HasOne
     {
-        return $this->hasOne(StoreRule::class);
+        return $this->hasOne(StoreRule::class, 'store_id', 'id');
     }
 }

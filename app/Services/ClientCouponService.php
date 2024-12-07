@@ -6,8 +6,8 @@ use App\Repositories\ClientCouponRepository;
 
 class ClientCouponService extends BaseService
 {
-    public function __construct(ClientCouponRepository $repository, ?array $relations)
+    public function __construct(ClientCouponRepository $repository)
     {
-        parent::__construct($repository, $relations);
+        parent::__construct($repository, ['client']);
     }
 }
