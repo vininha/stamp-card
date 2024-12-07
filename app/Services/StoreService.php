@@ -8,6 +8,6 @@ class StoreService extends BaseService
 {
     public function __construct(StoreRepository $repository, ?array $relations)
     {
-        parent::__construct($repository, $relations);
+        parent::__construct($repository, ['']);
     }
 }

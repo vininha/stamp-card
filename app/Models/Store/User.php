@@ -5,6 +5,8 @@ namespace App\Models\Store;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -36,5 +38,15 @@ class User extends Authenticatable
     protected function password(): Attribute
     {
         return Attribute::make(set: fn(string $value) => Hash::make($value));
+    }
+
+    public function transactions(): HasMany
+    {
+        return $this->hasMany(StoreTransaction::class);
+    }
+
+    public function rule(): HasOne
+    {
+        return $this->hasOne(StoreRule::class);
     }
 }
