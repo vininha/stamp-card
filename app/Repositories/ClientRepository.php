@@ -10,4 +10,9 @@ class ClientRepository extends BaseRepository
     {
         parent::__construct($model);
     }
+
+    public function updateOrCreate(string $mobile)
+    {
+        return Client::updateOrCreate(['mobile' => $mobile], ['mobile' => $mobile]);
+    }
 }
