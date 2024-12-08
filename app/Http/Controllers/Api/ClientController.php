@@ -18,4 +18,8 @@ class ClientController extends Controller
     {
         return response()->json(['client' => $this->service->updateOrCreate($request->validated())]);
     }
+    public function listStamps(int $id): JsonResponse
+    {
+        return response()->json(['client' => $this->service->listStamps($id)]);
+    }
 }

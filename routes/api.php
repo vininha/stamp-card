@@ -17,4 +17,5 @@ Route::group([
     Route::post('login', [AuthController::class, 'login']);
     Route::get('shops', [StoreController::class, 'index']);
     Route::post('client/', [ClientController::class, 'store']);
+    Route::get('client/stamps', [ClientController::class, 'listStamps']);
 });
