@@ -18,4 +18,10 @@ class ClientService extends BaseService
         $client->refresh();
         return $client;
     }
+    public function listStamps(int $id)
+    {
+        $client = $this->repository->findById($id, ['stamps', 'stamps.shop']);
+        $client->refresh();
+        return $client;
+    }
 }

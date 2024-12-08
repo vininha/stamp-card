@@ -18,6 +18,7 @@ class Client extends Model
     }
     public function stamps(): HasMany
     {
-        return $this->hasMany(ClientStamps::class);
+        return $this->hasMany(ClientStamps::class)
+            ->with('shop');
     }
 }
